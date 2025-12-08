@@ -7,9 +7,9 @@ SecureApp – Mitarbeiter- & Abwesenheitsverwaltung
 1. Voraussetzungen
    .NET 8 SDK
 
-   Features im Überblick
+2. Features im Überblick
 
-2. Mitarbeiterverwaltung
+Mitarbeiterverwaltung
 Liste aller Mitarbeiter
 Neuen Mitarbeiter erfassen
 Bearbeiten / Löschen
