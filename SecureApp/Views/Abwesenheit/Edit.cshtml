@@ -1,0 +1,61 @@
+﻿@model SecureApp.Models.Abwesenheit
+
+@{
+    ViewData["Title"] = "Abwesenheit bearbeiten";
+}
+
+<h1>Abwesenheit bearbeiten</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group mb-3">
+        <label asp-for="MitarbeiterId" class="form-label">Mitarbeiter</label>
+        <select asp-for="MitarbeiterId"
+                class="form-control"
+                asp-items="ViewBag.MitarbeiterListe">
+            <option value="">-- Mitarbeiter wählen --</option>
+        </select>
+        <span asp-validation-for="MitarbeiterId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Grund" class="form-label"></label>
+        <select asp-for="Grund" class="form-control">
+            <option value="">-- Typ wählen --</option>
+            <option>Ferien</option>
+            <option>Krankheit</option>
+            <option>Weiterbildung</option>
+        </select>
+        <span asp-validation-for="Grund" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Von" class="form-label"></label>
+        <input asp-for="Von" class="form-control" />
+        <span asp-validation-for="Von" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Bis" class="form-label"></label>
+        <input asp-for="Bis" class="form-control" />
+        <span asp-validation-for="Bis" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Bemerkung" class="form-label"></label>
+        <textarea asp-for="Bemerkung" class="form-control"></textarea>
+        <span asp-validation-for="Bemerkung" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Speichern</button>
+    <a asp-action="Index" class="btn btn-secondary">Abbrechen</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,19 @@
+﻿@{
+ViewData["Title"] = "Home";
+}
+
+<h1 class="text-center mb-4">Welcome</h1>
+
+<div class="text-center">
+    <a asp-controller="Mitarbeiter"
+       asp-action="Index"
+       class="btn btn-primary btn-lg me-3 px-4">
+        Mitarbeiter anzeigen
+    </a>
+    <a asp-controller="Abwesenheit"
+       asp-action="Index"
+       class="btn btn-primary btn-lg px-4">
+        Abwesend anzeigen
+    </a>
+
+</div>

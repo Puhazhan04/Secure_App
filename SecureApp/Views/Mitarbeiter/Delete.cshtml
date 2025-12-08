@@ -1,0 +1,28 @@
+﻿@model SecureApp.Models.Mitarbeiter
+
+<h1>Mitarbeiter löschen</h1>
+
+<h3>Möchten Sie diesen Mitarbeiter wirklich löschen?</h3>
+
+<div>
+    <p><strong>Vorname:</strong> @Model.Vorname</p>
+    <p><strong>Nachname:</strong> @Model.Nachname</p>
+    <p><strong>Strasse:</strong> @Model.Strasse</p>
+    <p><strong>Nr:</strong> @Model.Nr</p>
+    <p><strong>PLZ:</strong> @Model.PLZ</p>
+    <p><strong>Ort:</strong> @Model.Ort</p>
+    <p><strong>Land:</strong> @Model.Land</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Telefon:</strong> @Model.Telefon</p>
+
+    <p><strong>Funktion:</strong> @Model.Funktion</p>
+
+
+</div>
+
+<form asp-action="Delete" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Löschen</button>
+    <a asp-action="Index" class="btn btn-secondary">Abbrechen</a>
+</form>

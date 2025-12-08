@@ -1,0 +1,51 @@
+﻿@model SecureApp.Models.Abwesenheit
+
+@{
+    ViewData["Title"] = "Abwesenheit erfassen";
+}
+
+<h2>Abwesenheit erfassen</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="MitarbeiterId"></label>
+        <select asp-for="MitarbeiterId" class="form-control"
+                asp-items="ViewBag.MitarbeiterListe">
+            <option value="">-- Mitarbeiter wählen --</option>
+        </select>
+        <span asp-validation-for="MitarbeiterId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Grund"></label>
+        <select asp-for="Grund" class="form-control">
+            <option value="">-- Typ wählen --</option>
+            <option>Ferien</option>
+            <option>Krankheit</option>
+            <option>Weiterbildung</option>
+        </select>
+        <span asp-validation-for="Grund" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Von"></label>
+        <input asp-for="Von" class="form-control" />
+        <span asp-validation-for="Von" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Bis"></label>
+        <input asp-for="Bis" class="form-control" />
+        <span asp-validation-for="Bis" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Bemerkung"></label>
+        <textarea asp-for="Bemerkung" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Speichern</button>
+    <a asp-action="Index" class="btn btn-secondary">Abbrechen</a>
+</form>
