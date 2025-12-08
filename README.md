@@ -9,13 +9,13 @@ SecureApp – Mitarbeiter- & Abwesenheitsverwaltung
 
 2. Features im Überblick
 
-Mitarbeiterverwaltung
-Liste aller Mitarbeiter
-Neuen Mitarbeiter erfassen
-Bearbeiten / Löschen
+Mitarbeiterverwaltung: 
+Liste aller Mitarbeiter,
+Neuen Mitarbeiter erfassen,
+Bearbeiten / Löschen,
 
-Abwesenheitsverwaltung
-Liste aller Abwesenheiten
-Filter „Heute abwesend“
+Abwesenheitsverwaltung: 
+Liste aller Abwesenheiten,
+Filter „Heute abwesend“,
 Abwesenheit erfassen, bearbeiten, löschen
 Auswahl des Mitarbeiters über Drop-Down
