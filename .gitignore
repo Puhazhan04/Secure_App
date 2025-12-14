@@ -9,3 +9,9 @@ obj/
 # User files
 *.user
 *.vsidx
+
+# Ignore local SQLite DB and backup files in SecureApp
+SecureApp/*.db
+SecureApp/*.db-shm
+SecureApp/*.db-wal
+SecureApp/*.Backup.tmp
