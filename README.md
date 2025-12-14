@@ -4,10 +4,7 @@ SecureApp – Mitarbeiter- & Abwesenheitsverwaltung
   Mitarbeiter verwalten (anlegen, bearbeiten, löschen)
   Abwesenheiten (Ferien, Krankheit, usw.) erfassen und auswerten kann.
 
-1. Voraussetzungen
-   .NET 8 SDK
-
-2. Features im Überblick
+1. Features im Überblick
 
 Mitarbeiterverwaltung: 
 Liste aller Mitarbeiter,
