@@ -1,0 +1,76 @@
+﻿@model SecureApp.Models.Abwesenheit
+
+@{
+    ViewData["Title"] = "Abwesenheit bearbeiten";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <h1 class="mb-0">Abwesenheit bearbeiten</h1>
+        <small class="text-muted">Eintrag aktualisieren</small>
+    </div>
+
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Zurück
+    </a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="MitarbeiterId" class="form-label">Mitarbeiter</label>
+                    <select asp-for="MitarbeiterId" class="form-select" asp-items="ViewBag.MitarbeiterListe">
+                        <option value="">-- Mitarbeiter wählen --</option>
+                    </select>
+                    <span asp-validation-for="MitarbeiterId" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Grund" class="form-label">Typ</label>
+                    <select asp-for="Grund" class="form-select">
+                        <option value="">-- Typ wählen --</option>
+                        <option>Ferien</option>
+                        <option>Krankheit</option>
+                        <option>Weiterbildung</option>
+                    </select>
+                    <span asp-validation-for="Grund" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Von" class="form-label"></label>
+                    <input asp-for="Von" type="date" class="form-control" />
+                    <span asp-validation-for="Von" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Bis" class="form-label"></label>
+                    <input asp-for="Bis" type="date" class="form-control" />
+                    <span asp-validation-for="Bis" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="Bemerkung" class="form-label"></label>
+                    <textarea asp-for="Bemerkung" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary">Abbrechen</a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save me-1"></i> Speichern
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,57 @@
+﻿@model SecureApp.Models.Abwesenheit
+
+@{
+    ViewData["Title"] = "Abwesenheit löschen";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <h1 class="mb-0 text-danger">Abwesenheit löschen</h1>
+        <small class="text-muted">Diese Aktion kann nicht rückgängig gemacht werden.</small>
+    </div>
+
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Zurück
+    </a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <div>
+                Möchten Sie diese Abwesenheit wirklich löschen?
+            </div>
+        </div>
+
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Mitarbeiter</dt>
+            <dd class="col-sm-9">@Model.Mitarbeiter?.Vorname @Model.Mitarbeiter?.Nachname</dd>
+
+            <dt class="col-sm-3">Typ</dt>
+            <dd class="col-sm-9">@Model.Grund</dd>
+
+            <dt class="col-sm-3">Von</dt>
+            <dd class="col-sm-9">@Model.Von.ToString("dd.MM.yyyy")</dd>
+
+            <dt class="col-sm-3">Bis</dt>
+            <dd class="col-sm-9">@Model.Bis.ToString("dd.MM.yyyy")</dd>
+
+            <dt class="col-sm-3">Bemerkung</dt>
+            <dd class="col-sm-9">@Model.Bemerkung</dd>
+        </dl>
+
+        <hr class="my-4" />
+
+        <form asp-action="Delete" method="post" class="d-flex justify-content-end gap-2">
+            <input type="hidden" asp-for="Id" />
+            <a asp-action="Index" class="btn btn-outline-secondary">Abbrechen</a>
+
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash me-1"></i> Löschen
+            </button>
+        </form>
+
+    </div>
+</div>

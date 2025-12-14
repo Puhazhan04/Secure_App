@@ -1,0 +1,110 @@
+﻿@model SecureApp.Models.Mitarbeiter
+
+@{
+    ViewData["Title"] = "Neuen Mitarbeiter erfassen";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <h1 class="mb-0">Neuen Mitarbeiter erfassen</h1>
+        <small class="text-muted">Bitte alle benötigten Daten eingeben</small>
+    </div>
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Zurück
+    </a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Vorname" class="form-label"></label>
+                    <input asp-for="Vorname" class="form-control" placeholder="Vorname" />
+                    <span asp-validation-for="Vorname" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Nachname" class="form-label"></label>
+                    <input asp-for="Nachname" class="form-control" placeholder="Nachname" />
+                    <span asp-validation-for="Nachname" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-8">
+                    <label asp-for="Strasse" class="form-label"></label>
+                    <input asp-for="Strasse" class="form-control" placeholder="Strasse" />
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="Nr" class="form-label"></label>
+                    <input asp-for="Nr" class="form-control" placeholder="Nr" />
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="PLZ" class="form-label"></label>
+                    <input asp-for="PLZ" class="form-control" placeholder="PLZ" />
+                    <span asp-validation-for="PLZ" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-8">
+                    <label asp-for="Ort" class="form-label"></label>
+                    <input asp-for="Ort" class="form-control" placeholder="Ort" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Land" class="form-label"></label>
+                    <input asp-for="Land" class="form-control" placeholder="Land" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Funktion" class="form-label"></label>
+                    <input asp-for="Funktion" class="form-control" placeholder="" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Telefon" class="form-label"></label>
+                    <input asp-for="Telefon" class="form-control" placeholder="Telefon" />
+                    <span asp-validation-for="Telefon" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Passwort" class="form-label"></label>
+                    <input asp-for="Passwort" class="form-control" type="password" placeholder="Passwort" />
+                    <span asp-validation-for="Passwort" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="PasswortBestätigung" class="form-label"></label>
+                    <input asp-for="PasswortBestätigung" class="form-control" type="password" placeholder="Passwort wiederholen" />
+                    <span asp-validation-for="PasswortBestätigung" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    Abbrechen
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check2-circle me-1"></i> Speichern
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

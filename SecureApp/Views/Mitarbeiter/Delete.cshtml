@@ -1,0 +1,61 @@
+﻿@model SecureApp.Models.Mitarbeiter
+
+@{
+    ViewData["Title"] = "Mitarbeiter löschen";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <h1 class="mb-0 text-danger">Mitarbeiter löschen</h1>
+        <small class="text-muted">Diese Aktion kann nicht rückgängig gemacht werden.</small>
+    </div>
+
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Zurück
+    </a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <div>
+                Möchten Sie diesen Mitarbeiter wirklich löschen?
+            </div>
+        </div>
+
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.Vorname @Model.Nachname</dd>
+
+            <dt class="col-sm-3">Adresse</dt>
+            <dd class="col-sm-9">@Model.Strasse @Model.Nr, @Model.PLZ @Model.Ort (@Model.Land)</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Telefon</dt>
+            <dd class="col-sm-9">@Model.Telefon</dd>
+
+            <dt class="col-sm-3">Funktion</dt>
+            <dd class="col-sm-9">@Model.Funktion</dd>
+        </dl>
+
+        <hr class="my-4" />
+
+        <form asp-action="Delete" method="post" class="d-flex justify-content-end gap-2">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                Abbrechen
+            </a>
+
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash me-1"></i> Löschen
+            </button>
+        </form>
+
+    </div>
+</div>

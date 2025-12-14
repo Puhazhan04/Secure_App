@@ -1,0 +1,11 @@
+# Ignore IDE folders
+.vs/
+.idea/
+
+# Build output
+bin/
+obj/
+
+# User files
+*.user
+*.vsidx

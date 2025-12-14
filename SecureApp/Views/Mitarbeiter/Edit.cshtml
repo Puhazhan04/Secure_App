@@ -1,0 +1,98 @@
+﻿@model SecureApp.Models.Mitarbeiter
+
+@{
+    ViewData["Title"] = "Mitarbeiter bearbeiten";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <h1 class="mb-0">Mitarbeiter bearbeiten</h1>
+        <small class="text-muted">Daten aktualisieren</small>
+    </div>
+    <a asp-action="Index" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Zurück
+    </a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+
+        @Html.ValidationSummary(false, "", new { @class = "text-danger mb-3" })
+
+        <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Vorname" class="form-label"></label>
+                    <input asp-for="Vorname" class="form-control" />
+                    <span asp-validation-for="Vorname" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Nachname" class="form-label"></label>
+                    <input asp-for="Nachname" class="form-control" />
+                    <span asp-validation-for="Nachname" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-8">
+                    <label asp-for="Strasse" class="form-label"></label>
+                    <input asp-for="Strasse" class="form-control" />
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="Nr" class="form-label"></label>
+                    <input asp-for="Nr" class="form-control" />
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="PLZ" class="form-label"></label>
+                    <input asp-for="PLZ" class="form-control" />
+                    <span asp-validation-for="PLZ" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-8">
+                    <label asp-for="Ort" class="form-label"></label>
+                    <input asp-for="Ort" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Land" class="form-label"></label>
+                    <input asp-for="Land" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Funktion" class="form-label"></label>
+                    <input asp-for="Funktion" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Telefon" class="form-label"></label>
+                    <input asp-for="Telefon" class="form-control" />
+                    <span asp-validation-for="Telefon" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-action="Index" class="btn btn-outline-secondary">Abbrechen</a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save me-1"></i> Speichern
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

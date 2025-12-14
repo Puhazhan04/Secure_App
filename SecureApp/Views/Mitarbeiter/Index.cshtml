@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SecureApp.Models.Mitarbeiter>
+
+@{
+    ViewData["Title"] = "Mitarbeiter";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+        <h1 class="mb-0">Mitarbeiter</h1>
+        <small class="text-muted">Übersicht aller Mitarbeitenden</small>
+    </div>
+
+    <a asp-action="Create" class="btn btn-success btn-lg">
+        <i class="bi bi-plus-lg me-1"></i> Neu erfassen
+    </a>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Vorname</th>
+                        <th>Nachname</th>
+                        <th>Ort</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Funktion</th>
+                        <th class="text-end">Aktionen</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@item.Vorname</td>
+                            <td>@item.Nachname</td>
+                            <td>@item.PLZ @item.Ort</td>
+                            <td>@item.Email</td>
+                            <td>@item.Telefon</td>
+                            <td>
+                                <span class="badge bg-secondary">@item.Funktion</span>
+                            </td>
+
+                            <td class="text-end">
+                                <a asp-action="Edit" asp-route-id="@item.Id"
+                                   class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="bi bi-pencil-square me-1"></i> Bearbeiten
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id"
+                                   class="btn btn-outline-danger btn-sm">
+                                    <i class="bi bi-trash me-1"></i> Löschen
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center text-muted py-5">
+                                <i class="bi bi-people display-6 d-block mb-2"></i>
+                                Noch keine Mitarbeiter erfasst.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
