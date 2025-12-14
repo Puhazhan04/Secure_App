@@ -15,3 +15,8 @@ SecureApp/*.db
 SecureApp/*.db-shm
 SecureApp/*.db-wal
 SecureApp/*.Backup.tmp
+
+# SQLite
+*.db
+*.db-wal
+*.db-shm
