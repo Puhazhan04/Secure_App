@@ -7,7 +7,7 @@ Die Anwendung nutzt **Entity Framework Core** mit **SQLite** als Datenbank.
 
 ## Voraussetzungen
 
-- .NET SDK 10.0 oder höher
+- .NET SDK 10.0 
   
 ---
 
